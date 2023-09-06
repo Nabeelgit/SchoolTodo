@@ -38,7 +38,7 @@ form_sub.addEventListener('submit', function(e){
     if(val !== ''){
         let option = opts.value;
         let key = createKey();
-        createItem(val, option, key);
+        createItem(val, option, "todo_"+key);
         localStorage.setItem(key, JSON.stringify({opt: option, value: val}));
         inp.value = '';
     }
