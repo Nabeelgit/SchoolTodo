@@ -8,7 +8,7 @@ function createKey(){
     }
     return "todo_"+randomString;
 }
-function createItem(val, option){
+function createItem(val, option, key){
     let list = document.getElementById('lst_'+option);
     let div = document.querySelector('.'+option);
     let li = document.createElement('li');
@@ -16,6 +16,7 @@ function createItem(val, option){
     li.classList.add('lst_opt');
     li.addEventListener('click', function(){
         this.remove();
+        localStorage.removeItem(key)
     });
     div.appendChild(li);
 }
@@ -27,7 +28,7 @@ for (let i = 0; i < localStorage.length; i++) {
         let val = json.value.trim();
         if(val !== ''){
             let option = json.opt;
-            createItem(val, option);
+            createItem(val, option, key);
         }
     }
   }
@@ -36,8 +37,9 @@ form_sub.addEventListener('submit', function(e){
     let val = inp.value.trim();
     if(val !== ''){
         let option = opts.value;
-        createItem(val, option);
-        localStorage.setItem(createKey(), JSON.stringify({opt: option, value: val}));
+        let key = createKey();
+        createItem(val, option, key);
+        localStorage.setItem(key, JSON.stringify({opt: option, value: val}));
         inp.value = '';
     }
 })
