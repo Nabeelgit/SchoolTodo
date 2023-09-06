@@ -8,21 +8,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="./script.js" defer></script>
 </head>
 <body>
-    <form>
-        <input type="text" id="add_inp" placeholder="Add an item...">
+    <form id="submit_form">
+        <input type="text" id="add_inp" placeholder="Add an item..." style="margin-bottom: 1rem" autocomplete="off">
+        <select id="options" style="margin-bottom: 1rem; height: 3rem;">
+            <option value="tests">Test</option>
+            <option value="homeworks" selected>Homework</option>
+            <option value="study">Study</option>
+        </select>
         <button id="add_btn">Add</button>
     </form>
     <div class="container">
         <div class="tests" style="border-right: 1px solid">
             <h2 style="color: rgb(82, 228, 140)">Tests</h2>
+            <ul id="lst_tests">
+
+            </ul>
         </div>
         <div class="homeworks">
             <h2 style="color: red">Homeworks</h2>
+            <ul id="lst_homeworks">
+
+            </ul>
         </div>
         <div class="study" style="border-left: 1px solid">
             <h2 style="color: blueviolet">Study</h2>
+            <ul id="lst_study">
+
+            </ul>
         </div>
     </div>
 </body>
