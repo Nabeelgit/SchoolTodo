@@ -31,15 +31,26 @@ for (let i = 0; i < localStorage.length; i++) {
             createItem(val, option, key);
         }
     }
-  }
+}
 form_sub.addEventListener('submit', function(e){
     e.preventDefault();
-    let val = inp.value.trim();
-    if(val !== ''){
-        let option = opts.value;
-        let key = createKey();
-        createItem(val, option, key);
-        localStorage.setItem(key, JSON.stringify({opt: option, value: val}));
-        inp.value = '';
+    switch(e.submitter) {
+        case document.getElementById("add_btn"):
+            let val = inp.value.trim();
+        if(val !== ''){
+            let option = opts.value;
+            let key = createKey();
+            createItem(val, option, key);
+            localStorage.setItem(key, JSON.stringify({opt: option, value: val}));
+            inp.value = '';
+        }
+        break;
+        case document.getElementById("reset_btn"):
+            let lsts = document.querySelectorAll('li');
+            localStorage.clear();
+            for(let i = 0; i < lsts.length; i++){
+                lsts[i].remove();
+            }
+        break;
     }
 })

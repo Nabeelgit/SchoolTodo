@@ -22,11 +22,10 @@ form {
   border: 1px solid rgb(32, 33, 36);
   outline: blue;
 }
-#add_btn {
+.btn {
   appearance: button;
-  background-color: #1652F0;
-  border: 1px solid #1652F0;
   border-radius: 4px;
+  border: 1px solid;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
@@ -44,17 +43,28 @@ form {
   touch-action: manipulation;
   width: fit-content;
 }
-#add_btn:disabled {
+.btn:disabled {
   opacity: .5;
 }
 
-#add_btn:focus {
+.btn:focus {
   outline: 0;
 }
-
+#add_btn {
+  background-color: #1652F0;
+  border-color: #1652F0;
+}
 #add_btn:hover {
   background-color: #0A46E4;
   border-color: #0A46E4;
+}
+#reset_btn {
+  background-color: #f01616;
+  border-color: #f03316;
+}
+#reset_btn:hover {
+  background-color: #e4270a;
+  border-color: #e42b0a;
 }
 
 #add_btn:active {
